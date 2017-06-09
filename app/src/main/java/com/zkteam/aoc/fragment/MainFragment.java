@@ -58,9 +58,9 @@ public class MainFragment extends Fragment {
     }
 
     public static class People {
-        String name;
-        String age;
-        String picUrl;
+        public String name;
+        public String age;
+        public String picUrl;
 
         public String getName() {
             return name;

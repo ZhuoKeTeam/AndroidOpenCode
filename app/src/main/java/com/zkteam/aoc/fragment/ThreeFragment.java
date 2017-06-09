@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zkteam.aoc.R;
+
 /**
  * Created by WangQing on 2017/6/9.
  */
