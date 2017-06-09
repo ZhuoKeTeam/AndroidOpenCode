@@ -1,4 +1,4 @@
-package com.zkteam.aoc;
+package com.zkteam.aoc.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

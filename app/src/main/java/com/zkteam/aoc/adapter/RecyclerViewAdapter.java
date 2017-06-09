@@ -1,10 +1,13 @@
-package com.zkteam.aoc;
+package com.zkteam.aoc.adapter;
 
 import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.facebook.fresco.helper.ImageLoader;
+import com.zkteam.aoc.fragment.MainFragment;
+import com.zkteam.aoc.R;
+import com.zkteam.aoc.view.ZKTeamFrescoView;
 
 import java.util.List;
 

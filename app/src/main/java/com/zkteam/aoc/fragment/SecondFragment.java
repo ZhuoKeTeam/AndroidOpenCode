@@ -1,4 +1,4 @@
-package com.zkteam.aoc;
+package com.zkteam.aoc.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.facebook.fresco.helper.ImageLoader;
+import com.zkteam.aoc.R;
+import com.zkteam.aoc.view.ZKTeamFrescoView;
 
 /**
  * Created by WangQing on 2017/6/9.

@@ -1,4 +1,4 @@
-package com.zkteam.aoc;
+package com.zkteam.aoc.activity;
 
 import android.os.Bundle;
 import android.support.annotation.IntDef;
@@ -9,6 +9,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import com.zkteam.aoc.R;
+import com.zkteam.aoc.adapter.MainViewpagerAdapter;
+import com.zkteam.aoc.fragment.MainFragment;
+import com.zkteam.aoc.fragment.SecondFragment;
+import com.zkteam.aoc.fragment.ThreeFragment;
+import com.zkteam.aoc.fragment.anim.ZoomOutPageTransformer;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

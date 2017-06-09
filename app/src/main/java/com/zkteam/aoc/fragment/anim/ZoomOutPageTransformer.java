@@ -1,4 +1,4 @@
-package com.zkteam.aoc;
+package com.zkteam.aoc.fragment.anim;
 
 import android.annotation.SuppressLint;
 import android.support.v4.view.ViewPager;

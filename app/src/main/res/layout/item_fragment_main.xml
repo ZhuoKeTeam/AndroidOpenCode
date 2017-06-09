@@ -16,7 +16,7 @@
         app:cardPreventCornerOverlap="true"
         app:cardBackgroundColor="@android:color/transparent">
 
-        <com.zkteam.aoc.ZKTeamFrescoView
+        <com.zkteam.aoc.view.ZKTeamFrescoView
             android:id="@+id/fresco_view"
             android:layout_width="match_parent"
             android:layout_height="150dp"

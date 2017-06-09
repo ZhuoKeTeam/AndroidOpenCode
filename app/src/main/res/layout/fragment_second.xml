@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@+id/fresco_view"/>
 
 
-    <com.zkteam.aoc.ZKTeamFrescoView
+    <com.zkteam.aoc.view.ZKTeamFrescoView
         android:id="@+id/fresco_view"
         android:layout_width="match_parent"
         android:layout_height="100dp"
