@@ -24,6 +24,17 @@ public class MainActivity extends AppCompatActivity {
     private static final int TYPE_FRAGMENT_SECOND = 1;
     private static final int TYPE_FRAGMENT_THREE = 2;
 
+    @Retention(RetentionPolicy.SOURCE)
+    @IntDef( value = {
+            TYPE_FRAGMENT_MAIN,
+            TYPE_FRAGMENT_SECOND,
+            TYPE_FRAGMENT_THREE})
+    public @interface CurrentFragment {}
+
+    private void switchViewPager(@CurrentFragment int currentFragment) {
+        mViewPager.setCurrentItem(currentFragment, true);
+    }
+
 
     private ConstraintLayout mContainer;
     private ViewPager mViewPager;
@@ -109,15 +120,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.clearOnPageChangeListeners();
     }
 
-    private void switchViewPager(@CurrentFragment int currentFragment) {
-        mViewPager.setCurrentItem(currentFragment, true);
-    }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @IntDef( value = {
-            TYPE_FRAGMENT_MAIN,
-            TYPE_FRAGMENT_SECOND,
-            TYPE_FRAGMENT_THREE})
-    public @interface CurrentFragment {}
+
+
 
 }
