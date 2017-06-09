@@ -6,22 +6,33 @@
     android:layout_height="wrap_content">
 
 
-    <ImageView
-        android:id="@+id/iv"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/timg"/>
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/dp_10"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="@dimen/dp_10"
+        app:cardPreventCornerOverlap="true"
+        app:cardBackgroundColor="@android:color/transparent">
+
+        <com.zkteam.aoc.ZKTeamFrescoView
+            android:id="@+id/fresco_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"/>
+
+    </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        app:contentPadding="@dimen/dp_4"
+        app:cardBackgroundColor="@color/colorAccent"
         app:cardCornerRadius="@dimen/dp_10"
         app:cardElevation="@dimen/dp_10"
         app:cardPreventCornerOverlap="true"
-        app:cardBackgroundColor="@color/colorAccent">
+        app:contentPadding="@dimen/dp_4">
 
         <TextView
             android:id="@+id/name"
