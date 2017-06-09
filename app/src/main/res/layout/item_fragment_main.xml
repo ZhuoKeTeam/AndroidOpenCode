@@ -13,14 +13,23 @@
         android:scaleType="centerCrop"
         android:src="@drawable/timg"/>
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="match_parent"
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="小青蛙"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"/>
+        android:layout_centerHorizontal="true"
+        app:contentPadding="@dimen/dp_4"
+        app:cardCornerRadius="@dimen/dp_10"
+        app:cardElevation="@dimen/dp_10"
+        app:cardPreventCornerOverlap="true"
+        app:cardBackgroundColor="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小青蛙"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"/>
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>
