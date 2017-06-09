@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
@@ -10,9 +11,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_second"
-        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteY="95dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:id="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="95dp"
+        android:layout_marginBottom="94dp"
+        app:layout_constraintBottom_toTopOf="@+id/fresco_view"/>
 
+
+    <com.zkteam.aoc.ZKTeamFrescoView
+        android:id="@+id/fresco_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 </android.support.constraint.ConstraintLayout>
