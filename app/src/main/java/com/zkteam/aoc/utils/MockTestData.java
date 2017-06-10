@@ -1,12 +1,15 @@
 package com.zkteam.aoc.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 模拟测试数据
  * Created by WangQing on 2017/6/10.
  */
 public class MockTestData {
 
-    public static String [] picNames = new String[]{
+    public static String[] picNames = new String[]{
             "彩色星空",
             "猎空星座",
             "宇宙星球",
@@ -18,7 +21,7 @@ public class MockTestData {
             "奇闻轶事",
             "欧美男模",
     };
-    public static String [] picUrls = new String[]{
+    public static String[] picUrls = new String[]{
             "http://pic.qiantucdn.com/58pic/19/74/30/57108f7f385ad_1024.jpg",
             "http://pic.qiantucdn.com/58pic/15/13/70/16M58PICa6B_1024.jpg",
             "http://pic31.photophoto.cn/20140519/0022005818922971_b.jpg",
@@ -31,8 +34,60 @@ public class MockTestData {
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497036138783&di=bb59e216f717165d40f58820c729f574&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201502%2F24%2F20150224142121_axcUN.jpeg",
     };
 
-    public static String [] beautyPics = new String[] {
+    public static String[] beautyPics = new String[]{
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497080731428&di=bf712b665a670dc92e025a6ce0709249&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fwallpaper%2F1601%2F29%2Fc1%2F18028207_1454080279515_800x600.jpg",
+            "http://www.wsxz.cn/ylzx/uploads/allimg/170504/00523Q211-0.jpg",
     };
+
+
+
+
+    public static List<People> getTestPeopleData() {
+        List<MockTestData.People> list = new ArrayList<>();
+
+        for (int i = 0; i < 20; i++) {
+            MockTestData.People p = new MockTestData.People();
+            p.setName(MockTestData.picNames[i % 10]);
+            p.setAge("" + i);
+            p.setPicUrl(MockTestData.picUrls[i % 10]);
+            list.add(p);
+        }
+
+        return list;
+    }
+
+
+
+
+
+    public static class People {
+        public String name;
+        public String age;
+        public String picUrl;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getAge() {
+            return age;
+        }
+
+        public void setAge(String age) {
+            this.age = age;
+        }
+
+        public String getPicUrl() {
+            return picUrl;
+        }
+
+        public void setPicUrl(String picUrl) {
+            this.picUrl = picUrl;
+        }
+    }
 
 }
