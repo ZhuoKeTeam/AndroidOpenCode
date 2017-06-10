@@ -31,4 +31,8 @@ public class MockTestData {
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497036138783&di=bb59e216f717165d40f58820c729f574&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201502%2F24%2F20150224142121_axcUN.jpeg",
     };
 
+    public static String [] beautyPics = new String[] {
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497080731428&di=bf712b665a670dc92e025a6ce0709249&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fwallpaper%2F1601%2F29%2Fc1%2F18028207_1454080279515_800x600.jpg",
+    };
+
 }
