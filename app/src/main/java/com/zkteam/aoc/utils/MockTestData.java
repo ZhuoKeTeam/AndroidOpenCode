@@ -1,5 +1,7 @@
 package com.zkteam.aoc.utils;
 
+import com.zkteam.aoc.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,20 @@ import java.util.List;
  * Created by WangQing on 2017/6/10.
  */
 public class MockTestData {
+
+    public static int[] colors = new int[] {
+            R.color.darkcyan,
+            R.color.plum,
+            R.color.darkslategray,
+            R.color.olivedrab,
+            R.color.hotpink,
+            R.color.orangered,
+            R.color.magenta,
+            R.color.crimson,
+            R.color.darkorchid,
+            R.color.rosybrown,
+            R.color.darkslategrey,
+    };
 
     public static String[] picNames = new String[]{
             "彩色星空",
@@ -50,6 +66,7 @@ public class MockTestData {
             p.setName(MockTestData.picNames[i % 10]);
             p.setAge("" + i);
             p.setPicUrl(MockTestData.picUrls[i % 10]);
+            p.setColor(MockTestData.colors[i % 10]);
             list.add(p);
         }
 
@@ -64,6 +81,7 @@ public class MockTestData {
         public String name;
         public String age;
         public String picUrl;
+        public int color;
 
         public String getName() {
             return name;
@@ -87,6 +105,14 @@ public class MockTestData {
 
         public void setPicUrl(String picUrl) {
             this.picUrl = picUrl;
+        }
+
+        public int getColor() {
+            return color;
+        }
+
+        public void setColor(int color) {
+            this.color = color;
         }
     }
 

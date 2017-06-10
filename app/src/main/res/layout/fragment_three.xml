@@ -15,7 +15,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.212"
-        android:id="@+id/textView2"/>
+        android:id="@+id/three_entry"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/dp_10"/>
 
 
     <com.zkteam.aoc.view.ZKTeamFrescoView

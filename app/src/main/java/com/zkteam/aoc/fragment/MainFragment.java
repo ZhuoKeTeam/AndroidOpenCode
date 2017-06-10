@@ -28,8 +28,8 @@ public class MainFragment extends BaseFragment {
     @Override
     protected void initData() {
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
+        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setAdapter(new RecyclerViewAdapter(R.layout.item_fragment_main, MockTestData.getTestPeopleData()));
     }
 
