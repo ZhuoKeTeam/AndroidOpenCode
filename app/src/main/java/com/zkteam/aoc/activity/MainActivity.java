@@ -3,15 +3,14 @@ package com.zkteam.aoc.activity;
 import android.os.Bundle;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.zkteam.aoc.R;
 import com.zkteam.aoc.adapter.MainViewpagerAdapter;
+import com.zkteam.aoc.base.BaseActivity;
 import com.zkteam.aoc.fragment.MainFragment;
 import com.zkteam.aoc.fragment.SecondFragment;
 import com.zkteam.aoc.fragment.ThreeFragment;
@@ -22,30 +21,60 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * http://blog.csdn.net/guolin_blog/article/details/53122387
- */
-public class MainActivity extends AppCompatActivity {
+import butterknife.BindView;
 
-    private static final int TYPE_FRAGMENT_MAIN = 0;
-    private static final int TYPE_FRAGMENT_SECOND = 1;
-    private static final int TYPE_FRAGMENT_THREE = 2;
+/**
+ * MainActivity
+ * Created by WangQing on 2017/6/10.
+ */
+
+public class MainActivity extends BaseActivity {
+
+    // 以下是 注解的 fragment 的标识
+    public static final int TYPE_FRAGMENT_MAIN = 0;
+    public static final int TYPE_FRAGMENT_SECOND = 1;
+    public static final int TYPE_FRAGMENT_THREE = 2;
+
 
     @Retention(RetentionPolicy.SOURCE)
-    @IntDef( value = {
+    @IntDef(value = {
             TYPE_FRAGMENT_MAIN,
             TYPE_FRAGMENT_SECOND,
             TYPE_FRAGMENT_THREE})
-    public @interface CurrentFragment {}
-
-    private void switchViewPager(@CurrentFragment int currentFragment) {
-        mViewPager.setCurrentItem(currentFragment, true);
+    public @interface CurrentFragment {
     }
 
 
-    private ConstraintLayout mContainer;
-    private ViewPager mViewPager;
-    private BottomNavigationView navigation;
+    @BindView(R.id.viewPaper)
+    ViewPager mViewPager;
+    @BindView(R.id.navigation)
+    BottomNavigationView navigation;
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initData() {
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        List<Fragment> views = new ArrayList<>();
+        views.add(new MainFragment());
+        views.add(new SecondFragment());
+        views.add(new ThreeFragment());
+
+        mViewPager.addOnPageChangeListener(mOnPageChangeListener);
+//        mViewPager.setPageTransformer(true, new DepthPageTransformer());
+        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        mViewPager.setAdapter(new MainViewpagerAdapter(getSupportFragmentManager(), views));
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -97,38 +126,13 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        mContainer = (ConstraintLayout) findViewById(R.id.container);
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
-
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        List<Fragment> views = new ArrayList<>();
-        views.add(new MainFragment());
-        views.add(new SecondFragment());
-        views.add(new ThreeFragment());
-
-        mViewPager.addOnPageChangeListener(mOnPageChangeListener);
-//        mViewPager.setPageTransformer(true, new DepthPageTransformer());
-        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        mViewPager.setAdapter(new MainViewpagerAdapter(getSupportFragmentManager(), views));
+    private void switchViewPager(@CurrentFragment int currentFragment) {
+        mViewPager.setCurrentItem(currentFragment, true);
     }
-
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mViewPager.clearOnPageChangeListeners();
     }
-
-
-
-
-
 }
