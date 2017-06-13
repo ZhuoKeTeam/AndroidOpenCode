@@ -3,4 +3,9 @@
     <string name="title_main">主世界</string>
     <string name="title_second">第二世界</string>
     <string name="title_three">第三世界</string>
+    <string name="text_view">TextView</string>
+    <string name="text_size">字体大小</string>
+    <string name="text_color">字体颜色</string>
+    <string name="text_style">字体样式</string>
+    <string name="team_aoc_text">字体展示：卓客Team AOC++</string>
 </resources>

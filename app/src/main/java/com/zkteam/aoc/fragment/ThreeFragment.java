@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.zkteam.aoc.R;
 import com.zkteam.aoc.activity.CategoryActivity;
+import com.zkteam.aoc.activity.ControlDisplayActivity;
 import com.zkteam.aoc.base.BaseFragment;
 import com.zkteam.aoc.utils.MockTestData;
 import com.zkteam.aoc.view.ZKTeamFrescoView;
@@ -16,6 +17,9 @@ import com.zkteam.aoc.view.ZKTeamFrescoView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.zkteam.aoc.activity.ControlDisplayActivity.FLAG_CATEGORY;
+import static com.zkteam.aoc.activity.ControlDisplayActivity.FLAG_CATEGORY_TEXT_VIEW;
 
 /**
  * 第三世界
@@ -27,6 +31,8 @@ public class ThreeFragment extends BaseFragment {
     ZKTeamFrescoView frescoView;
     @BindView(R.id.three_entry)
     TextView threeEntry;
+    @BindView(R.id.test_tv)
+    TextView testTv;
 
     @Override
     protected int getLayoutId() {
@@ -47,9 +53,18 @@ public class ThreeFragment extends BaseFragment {
         return rootView;
     }
 
-    @OnClick(R.id.three_entry)
-    public void onClick() {
-        Intent intent = new Intent(mContext, CategoryActivity.class);
-        mContext.startActivity(intent);
+    @OnClick({R.id.test_tv, R.id.three_entry})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.test_tv:
+                Intent intent = new Intent(mContext, ControlDisplayActivity.class);
+                intent.putExtra(FLAG_CATEGORY, FLAG_CATEGORY_TEXT_VIEW);
+                mContext.startActivity(intent);
+                break;
+            case R.id.three_entry:
+                Intent threeEntryIntent = new Intent(mContext, CategoryActivity.class);
+                mContext.startActivity(threeEntryIntent);
+                break;
+        }
     }
 }

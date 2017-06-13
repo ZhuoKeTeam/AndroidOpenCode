@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.CategoryActivity"/>
+        <activity android:name=".activity.ControlDisplayActivity"/>
     </application>
 
 </manifest>
