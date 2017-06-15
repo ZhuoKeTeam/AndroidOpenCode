@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zkteam.aoc.R;
+import com.zkteam.aoc.activity.CardViewShowActivity;
 import com.zkteam.aoc.activity.CategoryActivity;
 import com.zkteam.aoc.activity.ControlDisplayActivity;
 import com.zkteam.aoc.base.BaseFragment;
@@ -33,6 +34,8 @@ public class ThreeFragment extends BaseFragment {
     TextView threeEntry;
     @BindView(R.id.test_tv)
     TextView testTv;
+    @BindView(R.id.hello_cardview)
+    TextView cardViewTv;
 
     @Override
     protected int getLayoutId() {
@@ -53,7 +56,7 @@ public class ThreeFragment extends BaseFragment {
         return rootView;
     }
 
-    @OnClick({R.id.test_tv, R.id.three_entry})
+    @OnClick({R.id.test_tv, R.id.three_entry,R.id.hello_cardview})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.test_tv:
@@ -64,6 +67,10 @@ public class ThreeFragment extends BaseFragment {
             case R.id.three_entry:
                 Intent threeEntryIntent = new Intent(mContext, CategoryActivity.class);
                 mContext.startActivity(threeEntryIntent);
+                break;
+            case R.id.hello_cardview:
+                Intent cardviewIntent = new Intent(mContext, CardViewShowActivity.class);
+                mContext.startActivity(cardviewIntent);
                 break;
         }
     }

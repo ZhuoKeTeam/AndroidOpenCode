@@ -1,5 +1,6 @@
 package com.zkteam.aoc.adapter;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 
@@ -11,10 +12,11 @@ import com.zkteam.aoc.utils.MockTestData;
 import java.util.List;
 
 public class CategoryAdapter extends BaseQuickAdapter<MockTestData.People, BaseViewHolder>{
+    private Context  mContext;
 
-
-    public CategoryAdapter(int layoutResId, @Nullable List<MockTestData.People> data) {
+    public CategoryAdapter(Context c, int layoutResId, @Nullable List<MockTestData.People> data) {
         super(layoutResId, data);
+        mContext=c;
     }
 
     @Override
@@ -24,7 +26,7 @@ public class CategoryAdapter extends BaseQuickAdapter<MockTestData.People, BaseV
 //        baseViewHolder.setBackgroundRes(R.id.card_view, people.getColor());
 
         CardView cardView = baseViewHolder.getView(R.id.card_view);
-        cardView.setBackgroundResource(people.getColor());
-//        cardView.setCardBackgroundColor(people.getColor());
+//        cardView.setBackgroundResource(people.getColor());
+        cardView.setCardBackgroundColor(mContext.getResources().getColor(people.getColor()));
     }
 }

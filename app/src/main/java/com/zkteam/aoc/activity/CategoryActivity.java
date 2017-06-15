@@ -31,7 +31,7 @@ public class CategoryActivity extends BaseActivity {
 //        recyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new GridLayoutManager(mContext,3));
 //        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        recyclerView.setAdapter(new CategoryAdapter(R.layout.item_fragment_categroy, MockTestData.getTestPeopleData()));
+        recyclerView.setAdapter(new CategoryAdapter(this,R.layout.item_fragment_categroy, MockTestData.getTestPeopleData()));
     }
 
     @Override
