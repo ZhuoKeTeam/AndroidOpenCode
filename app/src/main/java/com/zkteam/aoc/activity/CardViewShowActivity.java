@@ -3,16 +3,21 @@ package com.zkteam.aoc.activity;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.fresco.helper.utils.DensityUtil;
 import com.zkteam.aoc.R;
+import com.zkteam.aoc.adapter.SwipePostCardAdapter;
 import com.zkteam.aoc.base.BaseActivity;
 import com.zkteam.aoc.utils.MockTestData;
+import com.zkteam.aoc.view.SwipePostcardView;
 import com.zkteam.aoc.view.ZKTeamFrescoView;
 
 import butterknife.BindView;
@@ -34,6 +39,10 @@ public class CardViewShowActivity extends BaseActivity {
     ZKTeamFrescoView frescoView1;
     @BindView(R.id.ib_back)
     ImageButton backIb;
+    @BindView(R.id.postcards)
+    SwipePostcardView postcardView;
+    @BindView(R.id.scrollView)
+    ScrollView mScrollView;
 
 
     private int clickCount = -1;
@@ -48,6 +57,7 @@ public class CardViewShowActivity extends BaseActivity {
     protected void initData() {
         loadImage(frescoView, MockTestData.beautyPics[1]);
         backIb.setVisibility(View.GONE);
+        postcardView.setAdapter(new SwipePostCardAdapter(this, MockTestData.getTestPeopleData()));
     }
 
     @OnClick({R.id.cardview2, R.id.ib_back})
@@ -139,9 +149,24 @@ public class CardViewShowActivity extends BaseActivity {
                 textView.setText("凑合用吧~还是做Item比较好！Go on!");
                 break;
             case 10:
+                textView.setText("会错意了吧，看看下面的效果！Go on!");
                 break;
             case 11:
-                //TODO 跳转淘宝店铺推荐切换效果
+                postcardView.setVisibility(View.VISIBLE);
+                postcardView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                            //允许ScrollView截断点击事件，ScrollView可滑动
+                            mScrollView.requestDisallowInterceptTouchEvent(false);
+                        } else {
+                            //不允许ScrollView截断点击事件，点击事件由子View处理
+                            mScrollView.requestDisallowInterceptTouchEvent(true);
+                        }
+                        return false;
+                    }
+                });
+                mScrollView.smoothScrollTo(0, (int) (postcardView.getHeight() + postcardView.getY()));
                 break;
             case 12:
                 //TODO 跳转滚动式卡片
