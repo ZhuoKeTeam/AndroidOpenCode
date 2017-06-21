@@ -59,10 +59,10 @@ public class MockTestData {
 
 
     public static List<People> getTestPeopleData() {
-        List<MockTestData.People> list = new ArrayList<>();
+        List<People> list = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
-            MockTestData.People p = new MockTestData.People();
+            People p = new People();
             p.setName(MockTestData.picNames[i % 10]);
             p.setAge("" + i);
             p.setPicUrl(MockTestData.picUrls[i % 10]);
